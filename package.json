@@ -1,0 +1,28 @@
+{
+  "name": "yaml-todos",
+  "version": "1.0.0",
+  "description": "Simple To-Do generator using YAML as data input",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/victoralveflo/yaml-todos.git"
+  },
+  "keywords": [
+    "yaml",
+    "todo",
+    "generator"
+  ],
+  "author": "Victor Alveflo <victor.alveflo@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victoralveflo/yaml-todos/issues"
+  },
+  "homepage": "https://github.com/victoralveflo/yaml-todos",
+  "dependencies": {
+    "express": "^4.9.5",
+    "js-yaml": "^3.2.2"
+  }
+}
