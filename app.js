@@ -1,60 +1,44 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+#!/usr/bin/env node
+var app = require('./yaml-todo.js');
+var program = require('commander');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var GenerateTodoList = function(name) {
+	var fs = require('fs');
+	fs.writeFileSync(name, '---\n', 'utf8', 'w');
+	var stream = fs.createWriteStream(name);
+	stream.once('open', function(name) {
+		stream.write('todos:\n');
+		stream.write(' - Create todos: Edit this todo-list template!\n');
+		stream.write(' - Do: Do your chores!\n');
+		stream.end();
+	});
+	fs.chmodSync(name, '755', function(err) {
+		console.log('Unable to set chmod. Aborting.');
+		process.exit();
+	});
+};
 
-var app = express();
+program
+	.version('1.0.0')
+	.option('-f, --file <filename>', 'Location of YAML-file')
+	.parse(process.argv);
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+var filename;
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', routes);
-app.use('/users', users);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
+if (program.file){
+	filename = program.file;
+	app(filename);
 }
+else {
+	var readline = require('readline');
 
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
-
-
-module.exports = app;
+	var rl = readline.createInterface({
+	  input: process.stdin,
+	  output: process.stdout
+	});
+	rl.question('- Please specify your YAML-file: ', function(file) {
+		filename = file;
+		rl.close();
+		app(filename);
+	});
+}

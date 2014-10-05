@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="public/stylesheets/style.css">
+    <script src="public/javascripts/jquery.min.js"></script>
+    <script src="public/javascripts/angular.min.js"></script>
+    <script src="public/javascripts/Controllers/mainCtrl.js"></script>  
+    <script>
+      var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      $(document).ready(function(){
+        $('#error').hide();
+
+
+
+        var date = new Date();
+        var day = days[date.getDay()];
+        var month = months[date.getMonth()];
+        var date = date.getDate();
+        var th = (date == 1) ? 'st' : 'th';
+        th = (date == 2) ? 'nd' : th;
+        th = (date == 3) ? 'rd' : th;
+        var title = day + '<br/><small>' + month + ' ' + date + th + '</small>';
+
+
+        $('#header').html(title);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1 id="header"></h1>
+      </div>
+      <p class="bg-danger" id="error"></p>
+      <div ng-controller="mainCtrl" class="div">
+        <div ng-repeat="todo in todos" class="div unstyled">
+          <div class="bs-callout">
+            <h4>{{todo.name}}</h4>
+            <p>{{todo.desc}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container">
+          <p class="text-muted">
+          <center>
+            Built with <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> and 
+            <a href="https://angularjs.org/" target="_blank">Angular</a>.
+          </p>
+          </center>
+      </div>
+    </div>
+    <script src="public/javascripts/clickfunc.js"></script>
+  </body>
+</html>
