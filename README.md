@@ -4,13 +4,15 @@ A todo list generator using yaml as input data.
 #### installation
 This application runs on [node.js](http://nodejs.org) and is installed via node package manager:
 ```
-> [sudo] npm install -g yaml-todos
+> npm install -g yaml-todos
 ```
+*Problems, linux user? One word: sudo!*
 
 #### run
 ```
-> [sudo] yaml-todos -f file_name.yaml
+> yaml-todos -f file_name.yaml
 ```
+*Problems, linux user? One word: sudo!*
 
 #### syntax
 The input yaml file must have a 'todos' key. This is simply because the web app is looking for this key when listing the tasks. See below for correct input syntax
@@ -35,8 +37,9 @@ todos:
 
 2 - Next run the application
 ```
-> [sudo] yaml-todos -f todos.yaml
+> yaml-todos -f todos.yaml
 ```
+*Problems, linux user? One word: sudo!*
 
 3 - Done! [Image](https://raw.githubusercontent.com/victoralveflo/yaml-todos/master/img/example.png)
 
