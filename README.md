@@ -34,7 +34,7 @@ todos:
   - Run: Run the application
 ```
 
-2 - Next run the application
+2 - Run the application
 ```
 > (sudo) yaml-todos -f todos.yaml
 ```
