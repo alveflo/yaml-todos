@@ -4,12 +4,22 @@ var watch = require('node-watch');
 
 
 module.exports = function(file) {
-	var WebSocketServer = require('ws').Server;
-	var wss = new WebSocketServer({port: 81});
+	var WebSocketServer;
+	var wss;
 	var websocket;
 	var sendJSON = function() {
 		try {
-			var json = yaml.safeLoad(fs.readFileSync(file, 'utf8'));
+			var yamlText;
+			var json;
+			try {
+				yamlText = fs.readFileSync(file, 'utf8');
+				json = yaml.safeLoad(yamlText);
+
+			}
+			catch(e) {
+				yamlText = 'Unable to read file ' + file;
+				json = { error: yamlText };
+			}
 			websocket.send(JSON.stringify(json));
 		}
 		catch (e) {
@@ -17,6 +27,17 @@ module.exports = function(file) {
 		}
 	};
 
+	try {
+		console.log('Starting web socket server at port 81...');
+		WebSocketServer = require('ws').Server;
+		wss = new WebSocketServer({port: 81});
+		console.log('Web socket server running on port 81!');
+	}
+	catch (e) {
+		console.log("Unable to start web socket server at port 81:");
+		console.log(e.toString());
+		process.exit();
+	}
 
 	console.log('Trying to create todo-list from %s.', file);
 	try {
@@ -61,7 +82,7 @@ module.exports = function(file) {
 	console.log('Done.');
 	try {
 		var open = require('open');
-		open('./index.html');
+		open(__dirname + '/index.html');
 	}
 	catch (e) {
 		// Unable to open browser...

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var app = require('./yaml-todo.js');
+var app = require('./yaml-todos.js');
 var program = require('commander');
 
 var GenerateTodoList = function(name) {

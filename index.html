@@ -2,19 +2,17 @@
 <html ng-app="todoApp">
   <head>
     <title></title>
-    <link rel="stylesheet" href="public/stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" href="public/stylesheets/style.css">
-    <script src="public/javascripts/jquery.min.js"></script>
-    <script src="public/javascripts/angular.min.js"></script>
-    <script src="public/javascripts/Controllers/mainCtrl.js"></script>  
+    <link rel="stylesheet" href="www/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="www/stylesheets/style.css">
+    <script src="www/javascripts/jquery.min.js"></script>
+    <script src="www/javascripts/angular.min.js"></script>
+    <script src="www/javascripts/Controllers/mainCtrl.js"></script>  
     <script>
       var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
       $(document).ready(function(){
         $('#error').hide();
-
-
-
+        
         var date = new Date();
         var day = days[date.getDay()];
         var month = months[date.getMonth()];
@@ -54,6 +52,6 @@
           </center>
       </div>
     </div>
-    <script src="public/javascripts/clickfunc.js"></script>
+    <script src="www/javascripts/clickfunc.js"></script>
   </body>
 </html>
