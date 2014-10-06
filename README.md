@@ -1,14 +1,15 @@
 # yaml-todos
-A todo list generator using yaml as input data
+A todo list generator using yaml as input data.
 
 #### installation
+This application runs on [node.js](http://nodejs.org) and is installed via node package manager:
 ```
-npm install -g yaml-todos
+> [sudo] npm install -g yaml-todos
 ```
 
 #### run
 ```
-[sudo] yaml-todos file_name.yaml
+> [sudo] yaml-todos -f file_name.yaml
 ```
 
 #### syntax
@@ -22,7 +23,9 @@ todos:
 ```
 
 #### example
-todos.yaml
+1 - Create a yaml-file containing your todo-list:
+
+*todos.yaml*
 ```yaml
 todos:
   - Install: Install this application from npm
@@ -30,6 +33,13 @@ todos:
   - Run: Run the application
 ```
 
+2 - Next run the application
 ```
-[sudo] yaml-todos -f todos.yaml
+> [sudo] yaml-todos -f todos.yaml
 ```
+
+3 - Done!
+![Example](http://jambler.se/demos/tiles/tiles_img.png)
+
+#### license
+MIT
