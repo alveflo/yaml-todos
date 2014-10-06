@@ -39,7 +39,8 @@ todos:
 ```
 
 3 - Done!
-![Example](http://jambler.se/demos/tiles/tiles_img.png)
+
+![Example](https://raw.githubusercontent.com/victoralveflo/yaml-todos/master/img/example.png)
 
 #### license
 MIT
