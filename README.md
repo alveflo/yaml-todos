@@ -38,7 +38,6 @@ todos:
 ```
 > (sudo) yaml-todos -f todos.yaml
 ```
-*Problems, linux user? One word: sudo!*
 
 3 - Done! [Image](https://raw.githubusercontent.com/victoralveflo/yaml-todos/master/img/example.png)
 
