@@ -38,9 +38,7 @@ todos:
 > [sudo] yaml-todos -f todos.yaml
 ```
 
-3 - Done!
-
-![Example](https://raw.githubusercontent.com/victoralveflo/yaml-todos/master/img/example.png)
+3 - Done! [Image](https://raw.githubusercontent.com/victoralveflo/yaml-todos/master/img/example.png)
 
 #### license
 MIT
